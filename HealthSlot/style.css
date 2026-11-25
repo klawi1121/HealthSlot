@@ -1,0 +1,1225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ---------- Variables (change colors here) ---------- */
+:root {
+    --primary: #2a5db0;
+    --primary-hover: #1e4685;
+    --primary-soft: #eef3fb;
+    --sidebar: #13294b;
+    --sidebar-text: #dbe6f7;
+    --sidebar-w: 230px;
+    --page: #f4f7fc;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #5f6f86;
+    --border: #e1e7f0;
+    --input-border: #b9c6dd;
+    --danger: #b42318;
+    --danger-border: #f0b4ae;
+    --danger-soft: #fdf0ee;
+    --amber: #8a5a00;
+    --amber-border: #e6c98a;
+    --amber-soft: #fdf5e0;
+    --success: #16803c;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --card-width: 460px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ---------- Base ---------- */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background: var(--page);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: var(--text);
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+h3,
+.form-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0 14px;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+/* ---------- Messages ---------- */
+.success,
+.error,
+.warning {
+    max-width: 700px;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 auto 16px;
+}
+
+.success {
+    color: var(--success);
+    background: #edf8f0;
+    border: 1px solid #c6e8d0;
+}
+
+.error {
+    color: var(--danger);
+    background: var(--danger-soft);
+    border: 1px solid var(--danger-border);
+}
+
+.warning {
+    color: var(--amber);
+    background: var(--amber-soft);
+    border: 1px solid var(--amber-border);
+}
+
+.error p, .warning p {
+    margin: 0 0 5px;
+}
+
+/* ---------- Form cards ---------- */
+form table {
+    width: min(var(--card-width), 100%);
+    margin: 20px auto;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    border-spacing: 0 12px;
+    text-align: left;
+}
+
+form td {
+    padding: 4px 8px;
+    vertical-align: middle;
+}
+
+form td:first-child {
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+form td[colspan="2"] em {
+    color: var(--muted);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+form :is(input[type="text"], input[type="email"], input[type="number"], input[type="password"],
+         input[type="date"], input[type="time"], input[type="month"], input[type="search"]),
+form select,
+form textarea {
+    width: 240px;
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    background: #ffffff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form :is(input[type="text"], input[type="email"], input[type="number"], input[type="password"],
+         input[type="date"], input[type="time"], input[type="month"], input[type="search"]),
+form select {
+    height: 42px;
+}
+
+form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(42, 93, 176, 0.14);
+}
+
+form input[type="file"] {
+    max-width: 240px;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+form a:not(.btn) {
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+form a:not(.btn):hover {
+    text-decoration: underline;
+}
+
+/* ---------- Buttons ---------- */
+.btn,
+form input[type="submit"],
+.update-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 40px;
+    padding: 9px 18px;
+
+    background: var(--primary);
+    color: #ffffff;
+    border: 1.5px solid var(--primary);
+    border-radius: var(--radius-sm);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn:hover,
+form input[type="submit"]:hover,
+.update-btn:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Action buttons in tables, colored by what they do */
+input[type="submit"][value="Cancel"] {
+    background: #ffffff;
+    color: var(--danger);
+    border-color: var(--danger-border);
+}
+input[type="submit"][value="Cancel"]:hover {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+input[type="submit"][value="Missed"] {
+    background: #ffffff;
+    color: var(--amber);
+    border-color: var(--amber-border);
+}
+input[type="submit"][value="Missed"]:hover {
+    background: var(--amber-soft);
+    color: var(--amber);
+    border-color: var(--amber);
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.action-buttons form,
+.records form {
+    margin: 0;
+}
+
+.edit-actions,
+.register-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.edit-actions .btn,
+.edit-actions input[type="submit"],
+.register-actions .btn,
+.register-actions input[type="submit"] {
+    width: 150px;
+}
+
+/* Default row of nav buttons (used when there is no sidebar) */
+.profile-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 24px;
+}
+
+/* ---------- Sidebar layout ----------
+   Any page with a .profile-actions row gets the sidebar, so no PHP changes are needed. */
+body:has(> .profile-actions) {
+    padding: 32px 32px 40px calc(var(--sidebar-w) + 32px);
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+body:has(> .profile-actions) > .profile-actions {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    width: var(--sidebar-w);
+    margin: 0;
+    padding: 24px 14px;
+    background: var(--sidebar);
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 6px;
+    overflow-y: auto;
+}
+
+body:has(> .profile-actions) > .profile-actions::before {
+    content: "HealthSlot";
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 12px 18px;
+}
+
+body:has(> .profile-actions) > .profile-actions .btn {
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    background: transparent;
+    color: var(--sidebar-text);
+    border: 1.5px solid transparent;
+    font-weight: 500;
+}
+
+body:has(> .profile-actions) > .profile-actions .btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* Page content next to the sidebar */
+body:has(> .profile-actions) > :not(.profile-actions) {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body:has(> .profile-actions) h2,
+body:has(> .profile-actions) h3,
+body:has(> .profile-actions) h4 {
+    text-align: left;
+}
+
+body:has(> .profile-actions) h3 {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+body:has(> .profile-actions) .success,
+body:has(> .profile-actions) .error,
+body:has(> .profile-actions) .warning {
+    max-width: none;
+    text-align: left;
+}
+
+/* ---------- Filter bar ---------- */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+}
+
+.filter-bar input[type="text"],
+.filter-bar input[type="date"],
+.filter-bar input[type="month"],
+.filter-bar select {
+    width: 200px;
+}
+
+/* ---------- Summary cards ---------- */
+.summary-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+    margin: 0 0 26px;
+}
+
+.summary-card {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 20px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: left;
+}
+
+.summary-number {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+}
+
+.summary-label {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ---------- Tables ---------- */
+.records {
+    width: 100%;
+    margin: 0 0 28px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.records th {
+    padding: 12px 14px;
+    background: #f8fafd;
+    color: var(--muted);
+    border-bottom: 1.5px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.records td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf1f7;
+    font-size: 13px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.records tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.records tbody tr:hover {
+    background: var(--primary-soft);
+}
+
+.records .btn,
+.records input[type="submit"] {
+    min-height: 34px;
+    padding: 6px 14px;
+    font-size: 12px;
+}
+
+.records img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+/* ---------- Status pills ---------- */
+.pill {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pill-pending,
+.pill-limited-slots { background: #fdf0d2; color: #7a4a00; }
+
+.pill-confirmed,
+.pill-available { background: #ddf3e4; color: #14532d; }
+
+.pill-completed { background: #e3eaf2; color: #243b53; }
+
+.pill-missed { background: #fde6d2; color: #8a3b00; }
+
+.pill-cancelled,
+.pill-full { background: #fadbd8; color: #7b241c; }
+
+/* ---------- Profile ---------- */
+.profile-card {
+    width: min(440px, 100%);
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+body:has(> .profile-actions) > .profile-card {
+    max-width: 440px;
+}
+
+.profile-picture {
+    display: block;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    margin: 0 auto 20px;
+}
+
+.profile-card h4 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.info-label {
+    color: var(--muted);
+    flex: 0 0 90px;
+}
+
+.info-value {
+    color: var(--text);
+    font-weight: 500;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.profile-card .update-btn {
+    display: flex;
+    width: 100%;
+    margin-top: 28px;
+}
+
+/* ---------- Cards and form fields ---------- */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin: 0 0 18px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.card h4 {
+    margin: 0 0 14px;
+    text-align: left;
+}
+
+.card .records {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+}
+
+.card .error,
+.card .success {
+    max-width: none;
+    text-align: left;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px 18px;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+form .field input:not([type="hidden"]):not([type="file"]),
+form .field select,
+form .field textarea {
+    width: 100%;
+}
+
+form .field input[type="file"] {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Secondary (outline) buttons: Cancel, Back and Clear filters */
+.button-row .btn,
+.btn-outline,
+form input[type="submit"].btn-outline {
+    background: #ffffff;
+    color: var(--primary);
+    border-color: var(--input-border);
+}
+
+.button-row .btn:hover,
+.btn-outline:hover,
+form input[type="submit"].btn-outline:hover {
+    background: var(--primary-soft);
+    color: var(--primary-hover);
+    border-color: var(--primary);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.page-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.cell-sub {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* Current page in the sidebar */
+body:has(> .profile-actions) > .profile-actions .btn.on {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* Summary card with normal top-to-bottom order */
+.summary-card.plain {
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ---------- Session rows and slot bars ---------- */
+.session-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) auto;
+    gap: 18px;
+    align-items: center;
+    padding: 14px 0;
+    border-top: 1px solid #edf1f7;
+}
+
+.session-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.slot-text {
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.bar {
+    height: 8px;
+    background: #e8edf5;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.bar-fill.warn { background: #d9901a; }
+.bar-fill.full { background: #c0392b; }
+
+.bar-row {
+    display: grid;
+    grid-template-columns: minmax(110px, 200px) 1fr 40px;
+    gap: 14px;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid #edf1f7;
+    font-size: 13px;
+}
+
+.bar-row strong {
+    text-align: right;
+}
+
+/* ---------- Login page ---------- */
+body.auth-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: stretch;
+    align-items: stretch;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.auth-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 44px;
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.auth-hero h1 {
+    margin: 0 0 14px;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.auth-hero p {
+    max-width: 420px;
+    margin: 0;
+    font-size: 16px;
+    color: #e6eefb;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: #ffffff;
+    color: var(--primary);
+    border-radius: var(--radius-sm);
+    font-size: 24px;
+    line-height: 1;
+}
+
+.auth-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+.auth-card {
+    width: min(400px, 100%);
+    margin: 0;
+    padding: 28px;
+}
+
+.auth-card h2 {
+    margin: 0 0 4px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.auth-card .muted {
+    margin: 0 0 18px;
+}
+
+.auth-card .field {
+    margin-bottom: 14px;
+}
+
+.auth-foot {
+    margin: 18px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.auth-foot a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ---------- Resident profile overview ---------- */
+.profile-photo {
+    display: block;
+    width: 140px;
+    height: 140px;
+    margin: 0 0 20px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.profile-photo-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-soft);
+    color: var(--primary);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 640px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.info-key {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.info-val {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Horizontal filter row ---------- */
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 14px 18px;
+}
+
+.filter-row .field {
+    flex: 1 1 180px;
+}
+
+.filter-row .button-row {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    margin-right: auto;
+}
+
+/* ---------- Profile: two columns in one card ---------- */
+.head-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 170px;
+}
+
+.head-actions .btn {
+    width: 100%;
+}
+
+.profile-split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.profile-split .info-list {
+    max-width: none;
+}
+
+/* ---------- Profile rows: label left, value right ---------- */
+.profile-split .info-row {
+    font-size: 14px;
+}
+
+.profile-split .info-label {
+    flex: 0 0 110px;
+}
+
+.profile-split .info-value {
+    min-width: 0;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Profile card: tinted left panel, photo centered ---------- */
+.profile-split {
+    align-items: stretch;
+}
+
+.profile-split .col-photo {
+    padding: 28px 24px;
+    background: var(--primary-soft);
+    border-radius: var(--radius);
+}
+
+.profile-split .col-photo .profile-photo {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 24px;
+}
+
+.profile-split .col-photo .profile-photo-empty {
+    font-size: 72px;
+}
+
+.profile-split .col-photo h4 {
+    text-align: center;
+}
+
+.profile-split .profile-info {
+    gap: 22px;
+}
+
+.grid-4 > .button-row {
+    align-self: end;
+    justify-content: flex-end;
+}
+
+/* Page heading row: title on the left, button vertically centered on the right */
+body > .page-head {
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+body:has(> .profile-actions) .page-head h3 {
+    margin-bottom: 0;
+}
+
+/* Checkbox row inside a form field */
+.check-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.check-row input[type="checkbox"] {
+    width: auto !important;
+    height: auto !important;
+}
+
+/* ---------- Sidebar: signed-in user and log out ---------- */
+.side-user {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.side-who {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.side-who:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.side-avatar {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-avatar svg {
+    width: 20px;
+    height: 20px;
+}
+
+.side-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.side-name {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.side-role {
+    color: var(--sidebar-text);
+    opacity: 0.75;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+}
+
+.side-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    border-radius: 8px;
+    background: #a82f2f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.side-logout:hover {
+    background: #8c2626;
+}
+
+.side-logout svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ---------- Pagination ---------- */
+.pager {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.pager-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- Responsive (all breakpoints in one place, widest first) ---------- */
+@media (max-width: 900px) {
+    body:has(> .profile-actions) {
+        padding: 20px 14px 30px;
+    }
+
+    body:has(> .profile-actions) > .profile-actions {
+        position: static;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 12px;
+        border-radius: var(--radius);
+    }
+
+    body:has(> .profile-actions) > .profile-actions::before {
+        flex: 0 0 100%;
+        padding: 0 8px 6px;
+    }
+
+    body:has(> .profile-actions) > .profile-actions .btn {
+        width: auto;
+        min-height: 38px;
+    }
+
+    .records {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .records th,
+    .records td {
+        white-space: nowrap;
+    }
+
+    .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .session-row { grid-template-columns: 1fr; gap: 10px; }
+
+    .grid-4 > .button-row {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+    }
+
+    .side-user {
+        flex: 1 1 100%;
+        margin-top: 8px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .side-logout {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 800px) {
+    body.auth-page { grid-template-columns: 1fr; }
+    .auth-hero { padding: 28px; gap: 30px; }
+}
+
+@media (max-width: 700px) {
+    .profile-split {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* On phones, show the photo group first */
+    .profile-split .col-photo {
+        order: -1;
+    }
+
+    .profile-split .col-photo .profile-photo {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 25px 12px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    form table,
+    form tbody,
+    form tr,
+    form td {
+        display: block;
+        width: 100%;
+    }
+
+    form table {
+        padding: 20px;
+    }
+
+    form td:first-child {
+        padding-bottom: 0;
+    }
+
+    form :is(input[type="text"], input[type="email"], input[type="number"], input[type="password"],
+             input[type="date"], input[type="time"], input[type="month"]),
+    form select,
+    form textarea {
+        width: 100%;
+    }
+
+    .grid-2, .grid-4 { grid-template-columns: 1fr; }
+    .span-2 { grid-column: auto; }
+    .bar-row { grid-template-columns: 1fr 40px; }
+    .bar-row .bar { grid-column: 1 / -1; order: 3; }
+
+    .filter-row .button-row {
+        width: 100%;
+    }
+}
+
+/* ---------- Print ---------- */
+@media print {
+    body:has(> .profile-actions) > .profile-actions,
+    .no-print {
+        display: none !important;
+    }
+
+    body:has(> .profile-actions) {
+        padding: 0;
+    }
+}
